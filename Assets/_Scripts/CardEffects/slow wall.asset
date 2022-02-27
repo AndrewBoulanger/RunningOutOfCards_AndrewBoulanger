@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2100000, guid: c8b137e93abe5d3429a257c57dc104fd, type: 2}
   InitialAmount: 5
+  sound: {fileID: 8300000, guid: db1bffbd883ee5447969e50b34ad8e97, type: 3}

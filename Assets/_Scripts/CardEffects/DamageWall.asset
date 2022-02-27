@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DamageWall
   m_EditorClassIdentifier: 
   icon: {fileID: 2100000, guid: e6998a563a3a2ac479c3ce98f7204ec2, type: 2}
-  InitialAmount: 20
+  InitialAmount: 17
+  sound: {fileID: 8300000, guid: 121df4ff91858d9498a8f60b32028fb2, type: 3}
