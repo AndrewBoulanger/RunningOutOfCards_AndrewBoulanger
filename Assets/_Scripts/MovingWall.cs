@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class MovingWall : MonoBehaviour
 {
@@ -15,11 +17,15 @@ public class MovingWall : MonoBehaviour
 
     float pauseTimer;
 
+    public UnityAction<bool> GameEndAction;
+
+    public Slider healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
         mRigidbody = GetComponent<Rigidbody>();
-        mRigidbody.AddForce(mVelocity, ForceMode.Acceleration);
+        mRigidbody.velocity =mVelocity;
     }
     private void Update()
     {
@@ -27,7 +33,7 @@ public class MovingWall : MonoBehaviour
         {
             pauseTimer -= Time.deltaTime;
 
-            if (pauseTimer <= 0)
+            if (pauseTimer < 0)
             { 
                 mRigidbody.velocity = mVelocity;
                 pauseTimer = 0;
@@ -46,8 +52,21 @@ public class MovingWall : MonoBehaviour
     public bool TakeDamage(float _damage)
     {
         Health -= _damage;
+        healthBar.value = Health;
+
+        if(Health <= 0)
+            GameEndAction.Invoke(true);
 
         return Health > 0;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameEndAction.Invoke(false);
+        }
+    }
+
 
 }

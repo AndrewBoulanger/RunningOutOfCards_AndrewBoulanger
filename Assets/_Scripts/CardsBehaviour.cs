@@ -8,6 +8,11 @@ public class CardsBehaviour : MonoBehaviour
 
     public Material defaultMaterial;
 
+    private void Start()
+    {
+        if(mEffect == null)
+            mEffect = new CardEffect();
+    }
 
     public void DoEffect(GameManager manager)
     {
@@ -35,6 +40,7 @@ public class CardsBehaviour : MonoBehaviour
 
     public void DoubleCard()
     {
-        mEffect.multiplier *= 2;
+        if(mEffect != null)
+            mEffect.multiplier *= 2;
     }
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4d4257b313faed64da66b419fe33371b, type: 3}
   m_Name: nothing
-  m_EditorClassIdentifier: Assembly-CSharp::NothingEffect
+  m_EditorClassIdentifier: 
   icon: {fileID: 2100000, guid: 2e5c940873b36e9478eaa0165e410579, type: 2}
   InitialAmount: 0

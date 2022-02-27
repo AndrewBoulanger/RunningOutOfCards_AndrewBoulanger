@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a8a7d6b5e7f200647a5582c1b3553e2d, type: 3}
   m_Name: slow wall
-  m_EditorClassIdentifier: Assembly-CSharp::SlowEffect
+  m_EditorClassIdentifier: 
   icon: {fileID: 2100000, guid: c8b137e93abe5d3429a257c57dc104fd, type: 2}
   InitialAmount: 5

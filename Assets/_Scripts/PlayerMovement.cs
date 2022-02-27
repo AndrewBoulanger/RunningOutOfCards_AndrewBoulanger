@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 using EPOOutline;
 public enum AnimStates
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameManager manager;
+
 
     private void Awake()
     {
@@ -135,5 +137,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
 }
