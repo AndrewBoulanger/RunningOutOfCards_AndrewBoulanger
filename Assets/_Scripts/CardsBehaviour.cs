@@ -6,19 +6,8 @@ public class CardsBehaviour : MonoBehaviour
 {
     public CardEffect mEffect;
 
+    public Material defaultMaterial;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void DoEffect(GameManager manager)
     {
@@ -37,4 +26,10 @@ public class CardsBehaviour : MonoBehaviour
         GetComponent<MeshRenderer>().material = mEffect.icon;
     }
 
+
+    private void OnDisable()
+    {
+        if(defaultMaterial != null)
+            GetComponent<MeshRenderer>().material = defaultMaterial;
+    }
 }

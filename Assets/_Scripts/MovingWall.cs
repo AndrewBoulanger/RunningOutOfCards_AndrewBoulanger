@@ -18,7 +18,8 @@ public class MovingWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mRigidbody.velocity = mVelocity;
+        mRigidbody = GetComponent<Rigidbody>();
+        mRigidbody.AddForce(mVelocity, ForceMode.Acceleration);
     }
     private void Update()
     {

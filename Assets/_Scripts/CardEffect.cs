@@ -68,6 +68,6 @@ public class DoubleEffect : Effect
 {
     public override void DoEffect(GameManager manager, int amount)
     {
-        manager.
+        
     }
 }
