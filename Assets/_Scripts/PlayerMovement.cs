@@ -92,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnInteract()
     {
-        print(overlappingCard);
         if(overlappingCard != null)
         {
             PlayerState.isPickingUp = true;
@@ -104,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PickUpDelay()
     {
         yield return new WaitForSeconds(0.5f);
-        if (manager.AddToCardsToPlay(overlappingCard.mEffect))
+        
+        if (overlappingCard != null && manager.AddToCardsToPlay(overlappingCard.mEffect))
         {
             overlappingCard.gameObject.SetActive(false);
             overlappingCard = null;
@@ -136,5 +136,12 @@ public class PlayerMovement : MonoBehaviour
                 card.enabled = false;
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        m_inputs.actions["Movement"].performed -= context => OnMovementInput(context.ReadValue<Vector2>());
+        m_inputs.actions["Movement"].canceled -= _ => OnMovementInput(Vector2.zero);
+        m_inputs.actions["Interact"].performed -= _ => OnInteract();
     }
 }

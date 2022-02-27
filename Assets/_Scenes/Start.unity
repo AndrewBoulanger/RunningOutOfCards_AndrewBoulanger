@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: dd138e1a8f39c0745a8a2235acf1cc0c, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: b41302d383c2932488ee4f2d36f1422a, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   resultsText: {fileID: 1226122847}
   replayButton: {fileID: 1027285337}
   quitButton: {fileID: 621060085}
-  isStartscreen: 0
+  isStartscreen: 1
 --- !u!114 &534944369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,6 +1810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Credits
+  startSelected: 0
 --- !u!114 &727212050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3275,10 +3276,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 42
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 47
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3286,7 +3287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Credits
+  m_Text: Instructions
 --- !u!222 &1433956109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4187,7 +4188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0c4fd4396a4914fa7703898fdaed3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Instructions
+  scene: Info
+  startSelected: 0
 --- !u!114 &1722523613
 MonoBehaviour:
   m_ObjectHideFlags: 0

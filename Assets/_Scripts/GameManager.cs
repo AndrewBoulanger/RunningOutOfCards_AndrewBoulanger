@@ -97,8 +97,8 @@ public class GameManager : MonoBehaviour
     {
         resultsPanel.gameObject.SetActive(true);
         resultsPanel.ShowResults(won);
-
         Time.timeScale = 0;
+        wall.GameEndAction -= OnGameEnd;
     }
 
     private void OnDestroy()
