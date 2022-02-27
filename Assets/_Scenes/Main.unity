@@ -906,9 +906,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008022585}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 2
+  m_AngularDrag: 2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -926,6 +926,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e780ae164e9634ab160cb4f6759a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_accelationRate: 3
+  m_MaxSpeed: 3
+  deceleration: 0.15
+--- !u!114 &2008022588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008022585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bef287d3b2a9ff141b41f5e40f943c13, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0bbc6d1b-440c-4e8b-aeab-d2d9bed486d1
+    m_ActionName: Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56806b4c-9240-47df-9ae3-c99786d2dc3c
+    m_ActionName: Player/Interact[/DualShock4GamepadHID/buttonSouth,/Keyboard/space,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fa9e393-7402-42a5-a5cc-4a5eea4c91c9
+    m_ActionName: Player/Pause[/Keyboard/q,/DualShock4GamepadHID/start]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &2590267795223487474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,8 +983,12 @@ PrefabInstance:
       value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2590267793992431977, guid: 66e59d734c8b28e4bb00960d7891244a, type: 3}
-      propertyPath: outlineTargets.Array.data[0].IsVisible
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590267793992431977, guid: 66e59d734c8b28e4bb00960d7891244a, type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2590267793992431982, guid: 66e59d734c8b28e4bb00960d7891244a, type: 3}
       propertyPath: m_RootOrder
@@ -951,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2590267793992431982, guid: 66e59d734c8b28e4bb00960d7891244a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 2590267793992431982, guid: 66e59d734c8b28e4bb00960d7891244a, type: 3}
       propertyPath: m_LocalPosition.z
