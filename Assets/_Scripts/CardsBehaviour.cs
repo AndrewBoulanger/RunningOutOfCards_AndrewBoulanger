@@ -23,7 +23,7 @@ public class CardsBehaviour : MonoBehaviour
 
     public void Reveal()
     {
-        GetComponent<MeshRenderer>().material = mEffect.icon;
+        GetComponent<MeshRenderer>().material = mEffect.GetIcon;
     }
 
 
@@ -31,5 +31,10 @@ public class CardsBehaviour : MonoBehaviour
     {
         if(defaultMaterial != null)
             GetComponent<MeshRenderer>().material = defaultMaterial;
+    }
+
+    public void DoubleCard()
+    {
+        mEffect.multiplier *= 2;
     }
 }

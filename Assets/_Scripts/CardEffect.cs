@@ -9,30 +9,27 @@ public enum EffectsEnum
     Nothing, DamageWall, SlowWall, DoubleNext, revealCards
 }
 
-[CreateAssetMenu(fileName = "new effect", menuName = "Scriptable Objects/Card Effect")]
-public class CardEffect : ScriptableObject
+
+public class CardEffect
 {
-    public Material icon;
 
     public Effect effect;
 
-    public int amount;
+    public int multiplier = 1;
 
-    public bool isDoubled;
-
+    public Material GetIcon {get => effect.icon;}
 
     public  void DoEffect(GameManager manager)
     {
-        if(isDoubled)
-            effect.DoEffect(manager, amount * 2);
-        else
-            effect.DoEffect(manager, amount);
+        effect.DoEffect(manager, effect.InitialAmount * multiplier);
     }
 }
 
 [System.Serializable]
 public abstract class Effect : ScriptableObject
 {
+    public Material icon;
+    public int InitialAmount;
     public abstract void DoEffect(GameManager manager, int amount);
 }
 
@@ -68,6 +65,17 @@ public class DoubleEffect : Effect
 {
     public override void DoEffect(GameManager manager, int amount)
     {
-        
+        for(int i = 0; i < amount ; i++)
+            manager.DoubleNextCard();
+    }
+}
+
+[System.Serializable, CreateAssetMenu(fileName = "reveal", menuName = "Scriptable Objects/RevealEffect")]
+public class RevealEffect : Effect
+{
+    public override void DoEffect(GameManager manager, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+            manager.RevealCollumn();
     }
 }

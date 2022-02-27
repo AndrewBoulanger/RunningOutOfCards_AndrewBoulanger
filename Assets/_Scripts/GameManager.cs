@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public MovingWall wall;
     public PlayerMovement player;
-    public CardsBehaviour[][] cards;
+    public List<CardCollumn> cardCollumns;
     public int numCardsInTurn = 3;
     public int delayBetweenCards = 3;
 
@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour
     bool playingCards;
     int setCards;
 
+    int revealedColumns;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        HideDisplayCards();
+        RevealCollumn();
     }
 
     // Update is called once per frame
@@ -54,8 +58,33 @@ public class GameManager : MonoBehaviour
             ce.OnUsedUp();
         }
 
-        
+        HideDisplayCards();
 
+    }
+
+    void HideDisplayCards()
+    {
+        foreach (CardsBehaviour cb in cardsToPlay)
+        {
+            cb.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
+    public void DoubleNextCard()
+    {
+        foreach (CardsBehaviour cb in cardsToPlay)
+        {
+            cb.DoubleCard();
+        }
+    }
+
+    public void RevealCollumn()
+    {
+        if(revealedColumns < cardCollumns.Count)
+        {
+            cardCollumns[revealedColumns].RevealColumn();
+            revealedColumns++;
+        }
     }
 
 }
