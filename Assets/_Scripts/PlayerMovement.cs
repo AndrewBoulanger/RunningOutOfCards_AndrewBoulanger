@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using EPOOutline;
 public enum AnimStates
 {
     Idle, Movement, Interact
@@ -27,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput m_inputs;
     Rigidbody m_rigidbody;
     Animator m_animator;
+
+    CardsBehaviour overlappingCard = null;
+
+    [SerializeField]
+    GameManager manager;
 
     private void Awake()
     {
@@ -84,8 +90,50 @@ public class PlayerMovement : MonoBehaviour
 
     void OnInteract()
     {
-        PlayerState.isPickingUp = true;
-        m_animator.SetInteger(animStateHash, (int)AnimStates.Interact);
+        print(overlappingCard);
+        if(overlappingCard != null)
+        {
+            PlayerState.isPickingUp = true;
+            m_animator.SetInteger(animStateHash, (int)AnimStates.Interact);
+            StartCoroutine("PickUpDelay");
+
+        }
+    }
+    IEnumerator PickUpDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (manager.AddToCardsToPlay(overlappingCard.mEffect))
+        {
+            overlappingCard.gameObject.SetActive(false);
+            overlappingCard = null;
+        }
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Card"))
+        {
+            overlappingCard = other.GetComponent<CardsBehaviour>();
+            if(other.transform.parent.TryGetComponent<Outlinable >(out Outlinable card))
+            {
+                card.enabled = true;
+            }
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Card"))
+        {
+            overlappingCard = null;
+            if (other.transform.parent.TryGetComponent<Outlinable>(out Outlinable card))
+            {
+                card.enabled = false;
+            }
+        }
     }
 
 }

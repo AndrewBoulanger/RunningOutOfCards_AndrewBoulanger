@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int numCardsInTurn = 3;
     public int delayBetweenCards = 3;
 
+    [SerializeField]
     private List<CardsBehaviour> cardsToPlay;
     bool playingCards;
     int setCards;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void AddCardsToPlay(CardEffect effect)
+    public bool AddToCardsToPlay(CardEffect effect)
     {
         if(playingCards == false)
         {
@@ -35,7 +36,11 @@ public class GameManager : MonoBehaviour
 
             if(setCards >= numCardsInTurn)
                StartCoroutine("PlayCards");
+
+            return true;
         }
+        else
+            return false;
     }
 
     IEnumerator PlayCards()

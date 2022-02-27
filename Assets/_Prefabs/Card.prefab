@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 867588830}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,4 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a234cc07b209fb44bc302bcbd837d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mEffect: {fileID: 0}
+  mEffect: {fileID: 11400000, guid: 2ccf5e536bea2e64d8cb769c5bd79e6c, type: 2}
+  defaultMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
