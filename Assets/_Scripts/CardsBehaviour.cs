@@ -8,6 +8,8 @@ public class CardsBehaviour : MonoBehaviour
 
     public Material defaultMaterial;
 
+    public AudioSource audio;
+
     private void Start()
     {
         if(mEffect == null)
@@ -16,6 +18,9 @@ public class CardsBehaviour : MonoBehaviour
 
     public void DoEffect(GameManager manager)
     {
+        if(audio != null)
+            audio.PlayOneShot(mEffect.GetSound);
+
         transform.localScale *= 1.3f;
         mEffect.DoEffect(manager);
     }

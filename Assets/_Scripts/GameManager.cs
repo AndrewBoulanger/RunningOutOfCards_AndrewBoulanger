@@ -19,10 +19,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     ResultsPanel resultsPanel;
+    AudioSource audio;
+
+    [SerializeField]
+    AudioClip pickup, win, lose;
 
     // Start is called before the first frame update
     void Start()
     {
+         audio = GetComponent<AudioSource>();
         HideDisplayCards();
         RevealCollumn();
         wall.GameEndAction += OnGameEnd;
@@ -37,7 +42,7 @@ public class GameManager : MonoBehaviour
             cardsToPlay[setCards].gameObject.SetActive(true);
             cardsToPlay[setCards].Reveal();
             setCards++;
-
+            audio.PlayOneShot(pickup);
 
             if(setCards >= numCardsInTurn)
                StartCoroutine("PlayCards");
@@ -95,6 +100,11 @@ public class GameManager : MonoBehaviour
 
     private void OnGameEnd(bool won)
     {
+        if(won)
+            audio.PlayOneShot(win);
+        else
+            audio.PlayOneShot(lose);
+
         resultsPanel.gameObject.SetActive(true);
         resultsPanel.ShowResults(won);
         Time.timeScale = 0;

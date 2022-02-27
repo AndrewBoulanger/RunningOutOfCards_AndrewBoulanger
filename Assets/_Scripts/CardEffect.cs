@@ -19,6 +19,8 @@ public class CardEffect
 
     public Material GetIcon {get => effect.icon;}
 
+    public AudioClip GetSound {get => effect.sound;}
+
     public  void DoEffect(GameManager manager)
     {
         effect.DoEffect(manager, effect.InitialAmount * multiplier);

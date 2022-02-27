@@ -11,6 +11,7 @@ public class ResultsPanel : MonoBehaviour
 
     public bool isStartscreen;
 
+  
     // Start is called before the first frame update
     void Start()
     {
